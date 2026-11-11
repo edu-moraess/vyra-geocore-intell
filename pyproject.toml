@@ -43,7 +43,9 @@ dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
 ]
-geospatial = []
+geospatial = [
+    "numpy>=1.24",
+]
 
 [project.scripts]
 vyra-geocore = "vyra_geocore.cli:main"
