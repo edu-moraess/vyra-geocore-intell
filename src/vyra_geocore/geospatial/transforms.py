@@ -101,6 +101,8 @@ def geodetic_to_enu(
     target_frame: str = "local_enu",
 ) -> ENUTransformResult:
     """Perform the complete, explicitly declared WGS84 geodetic -> ECEF -> ENU transform."""
+    if not isinstance(datum, str) or not datum.strip():
+        raise GeospatialTransformError("datum must be an explicit non-empty string.")
     if datum.strip().upper() != "WGS84":
         raise GeospatialTransformError("Only explicitly declared WGS84 datum is supported.")
     if axis_order != "latitude_longitude_height":
